@@ -1,0 +1,35 @@
+{% assign cache_bust = site.time|date:'?v=%s' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>{{ site.title }} {% if page.title %} | {{ page.title }} {% endif %}</title>
+
+    <meta name="description" content="{{ page.description }}">
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | append: cache_bust }}">
+    {% for css in page.css %}
+        {% assign asset_path = '/asset/css/{{css}}' %}
+        <link rel="stylesheet" href="{{ asset_path | append: cache_bust }}">
+    {% endfor %}
+
+</head>
+<body {% if page.body_class %}class="{{body_class}}"{% endif %}>
+
+    {% include header.html %}
+
+    {{ content }}
+
+    {% if page.show_footer %}
+        {% include footer.html %}
+    {% endif %}
+    
+    {% for script in page.js %}
+        <script src="{{ script.url | default: js }}" {% if script.defer %}defer{% endif %}></script>
+    {% endfor %}
+    
+</body>
+</html>
