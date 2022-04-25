@@ -1,8 +1,22 @@
+title: Jekyll Website
+
 ###### Jekyll ######
 
 source: src
 permalink: pretty
 sass:
-    sass_dir: _sass
-    cache: false
-    style: compressed
+  sass_dir: _sass
+  cache: false
+  style: compressed
+
+plugins:
+  - jekyll-toc
+
+defaults:
+  - scope:
+      path: ''
+    values:
+      layout: 'default'
+      toc: true
+      show_footer: true
+      
