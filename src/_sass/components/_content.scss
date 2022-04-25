@@ -1,0 +1,25 @@
+.site-content {
+  padding-top: $site-content-padding-top;
+  max-width: 900px;
+
+  &__title {
+    margin-bottom: 50px;
+
+    .mtd-dot {
+      padding: 0px;
+    }
+    
+    .page-metadata {
+      color: $site-color-gray;
+    }
+
+    h1 {
+      margin-bottom: bs-spacer(4);
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: bs-spacer(6);
+  }
+}
