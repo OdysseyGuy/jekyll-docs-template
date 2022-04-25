@@ -1,0 +1,21 @@
+{% assign url = page.url | regex_replace: '/index$|/index.html$|/$' %}
+
+{% if url.size > 0 %}
+<div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    {% for crumb in breadcrumbs %}
+      {% if forloop.first %}
+        {% continue %}
+      {% endif %}
+      <li class="breadcrumb-item {% if forloop.last %} active {% endif %}"
+        {%- if forloop.last %} aria-current="page"{% endif %}>
+        <a href="{{ crumb.url | regex_replace: '/index$|/index.html$|/$' }}"
+          property="item">
+          <span>{{crumb.title}}</span>
+        </a>
+      </li>
+
+    {% endfor %}
+  </ol>
+</div>
+{% endif %}
