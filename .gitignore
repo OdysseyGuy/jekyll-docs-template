@@ -3,3 +3,4 @@ _site
 .*-cache
 .*-metadata
 Gemfile.lock
+node_modules/
